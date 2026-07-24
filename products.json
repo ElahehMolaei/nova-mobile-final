@@ -1,0 +1,284 @@
+{
+  "storeName": "نوا موبایل",
+  "tagline": "فروشگاه تخصصی گوشی موبایل",
+  "shippingInfo": "ارسال به سراسر ایران، تحویل ۲۴ تا ۷۲ ساعته، امکان پرداخت در محل در تهران",
+  "warrantyInfo": "۱۸ ماه گارانتی شرکتی روی تمام محصولات + ۷ روز ضمانت بازگشت کالا",
+  "supportHours": "پشتیبانی آنلاین هر روز ساعت ۹ صبح تا ۱۲ شب",
+  "categories": [
+    {
+      "id": "flagship",
+      "label": "پرچمدار"
+    },
+    {
+      "id": "midrange",
+      "label": "میان‌رده"
+    },
+    {
+      "id": "budget",
+      "label": "اقتصادی"
+    },
+    {
+      "id": "foldable",
+      "label": "تاشو"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Nova Galaxy S25 Ultra",
+      "brand": "Samsung",
+      "category": "flagship",
+      "price": 68500000,
+      "oldPrice": 74900000,
+      "colors": [
+        "مشکی تیتانیوم",
+        "خاکستری",
+        "بنفش"
+      ],
+      "ram": "12 گیگابایت",
+      "storage": "256 گیگابایت",
+      "screen": "6.8 اینچ Dynamic AMOLED 2X، ۱۲۰ هرتز",
+      "camera": "دوربین اصلی ۲۰۰ مگاپیکسل + تله‌فوتو + اولتراواید",
+      "battery": "۵۰۰۰ میلی‌آمپر ساعت، شارژ سریع ۴۵ وات",
+      "chip": "Snapdragon 8 Elite",
+      "rating": 4.8,
+      "reviews": 342,
+      "badge": "پرفروش",
+      "accent": "violet",
+      "chips": [
+        "12GB RAM",
+        "256GB",
+        "5000mAh",
+        "120Hz"
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "iPhone 16 Pro Max",
+      "brand": "Apple",
+      "category": "flagship",
+      "price": 79900000,
+      "oldPrice": null,
+      "colors": [
+        "تیتانیوم طبیعی",
+        "مشکی",
+        "دزرت"
+      ],
+      "ram": "8 گیگابایت",
+      "storage": "256 گیگابایت",
+      "screen": "6.9 اینچ Super Retina XDR، ۱۲۰ هرتز",
+      "camera": "دوربین سه‌گانه ۴۸ مگاپیکسل با زوم اپتیکال ۵ برابر",
+      "battery": "تا ۳۳ ساعت پخش ویدیو، شارژ سریع ۲۰ وات+",
+      "chip": "Apple A18 Pro",
+      "rating": 4.9,
+      "reviews": 518,
+      "badge": "جدید",
+      "accent": "graphite",
+      "chips": [
+        "8GB RAM",
+        "256GB",
+        "4685mAh",
+        "120Hz"
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Nova Xiaomi 15",
+      "brand": "Xiaomi",
+      "category": "flagship",
+      "price": 42900000,
+      "oldPrice": 46500000,
+      "colors": [
+        "سبز",
+        "مشکی",
+        "سفید"
+      ],
+      "ram": "12 گیگابایت",
+      "storage": "256 گیگابایت",
+      "screen": "6.36 اینچ AMOLED، ۱۲۰ هرتز",
+      "camera": "دوربین لایکا سه‌گانه ۵۰ مگاپیکسل",
+      "battery": "۵۴۰۰ میلی‌آمپر ساعت، شارژ سریع ۹۰ وات",
+      "chip": "Snapdragon 8 Elite",
+      "rating": 4.7,
+      "reviews": 210,
+      "badge": null,
+      "accent": "amber",
+      "chips": [
+        "12GB RAM",
+        "256GB",
+        "5400mAh",
+        "120Hz"
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "Galaxy A56",
+      "brand": "Samsung",
+      "category": "midrange",
+      "price": 21500000,
+      "oldPrice": 23900000,
+      "colors": [
+        "آبی روشن",
+        "مشکی",
+        "کرمی"
+      ],
+      "ram": "8 گیگابایت",
+      "storage": "128 گیگابایت",
+      "screen": "6.7 اینچ Super AMOLED، ۱۲۰ هرتز",
+      "camera": "دوربین سه‌گانه ۵۰ مگاپیکسل با OIS",
+      "battery": "۵۰۰۰ میلی‌آمپر ساعت، شارژ سریع ۴۵ وات",
+      "chip": "Exynos 1580",
+      "rating": 4.5,
+      "reviews": 176,
+      "badge": "پیشنهاد ویژه",
+      "accent": "sapphire",
+      "chips": [
+        "8GB RAM",
+        "128GB",
+        "5000mAh",
+        "120Hz"
+      ]
+    },
+    {
+      "id": "p5",
+      "name": "Nova Redmi Note 14 Pro",
+      "brand": "Xiaomi",
+      "category": "midrange",
+      "price": 14900000,
+      "oldPrice": 16200000,
+      "colors": [
+        "بنفش",
+        "خاکستری",
+        "سبز"
+      ],
+      "ram": "8 گیگابایت",
+      "storage": "256 گیگابایت",
+      "screen": "6.67 اینچ AMOLED خمیده، ۱۲۰ هرتز",
+      "camera": "دوربین اصلی ۲۰۰ مگاپیکسل",
+      "battery": "۵۵۰۰ میلی‌آمپر ساعت، شارژ سریع ۴۵ وات",
+      "chip": "Snapdragon 7s Gen 3",
+      "rating": 4.6,
+      "reviews": 289,
+      "badge": null,
+      "accent": "emerald",
+      "chips": [
+        "8GB RAM",
+        "256GB",
+        "5500mAh",
+        "120Hz"
+      ]
+    },
+    {
+      "id": "p6",
+      "name": "iPhone 13",
+      "brand": "Apple",
+      "category": "midrange",
+      "price": 31900000,
+      "oldPrice": 34500000,
+      "colors": [
+        "آبی",
+        "مشکی",
+        "صورتی"
+      ],
+      "ram": "4 گیگابایت",
+      "storage": "128 گیگابایت",
+      "screen": "6.1 اینچ Super Retina XDR",
+      "camera": "دوربین دوگانه ۱۲ مگاپیکسل",
+      "battery": "تا ۱۹ ساعت پخش ویدیو",
+      "chip": "Apple A15 Bionic",
+      "rating": 4.6,
+      "reviews": 401,
+      "badge": null,
+      "accent": "graphite",
+      "chips": [
+        "4GB RAM",
+        "128GB",
+        "3227mAh",
+        "60Hz"
+      ]
+    },
+    {
+      "id": "p7",
+      "name": "Nova Poco M7",
+      "brand": "Xiaomi",
+      "category": "budget",
+      "price": 8200000,
+      "oldPrice": 9100000,
+      "colors": [
+        "مشکی",
+        "آبی"
+      ],
+      "ram": "6 گیگابایت",
+      "storage": "128 گیگابایت",
+      "screen": "6.7 اینچ AMOLED، ۹۰ هرتز",
+      "camera": "دوربین اصلی ۵۰ مگاپیکسل",
+      "battery": "۵۰۰۰ میلی‌آمپر ساعت، شارژ سریع ۳۳ وات",
+      "chip": "Snapdragon 4 Gen 2",
+      "rating": 4.3,
+      "reviews": 152,
+      "badge": "ارزان‌ترین",
+      "accent": "amber",
+      "chips": [
+        "6GB RAM",
+        "128GB",
+        "5000mAh",
+        "90Hz"
+      ]
+    },
+    {
+      "id": "p8",
+      "name": "Galaxy A16",
+      "brand": "Samsung",
+      "category": "budget",
+      "price": 9800000,
+      "oldPrice": null,
+      "colors": [
+        "مشکی",
+        "طلایی"
+      ],
+      "ram": "6 گیگابایت",
+      "storage": "128 گیگابایت",
+      "screen": "6.7 اینچ Super AMOLED، ۹۰ هرتز",
+      "camera": "دوربین سه‌گانه ۵۰ مگاپیکسل",
+      "battery": "۵۰۰۰ میلی‌آمپر ساعت",
+      "chip": "MediaTek Helio G99",
+      "rating": 4.4,
+      "reviews": 98,
+      "badge": null,
+      "accent": "sapphire",
+      "chips": [
+        "6GB RAM",
+        "128GB",
+        "5000mAh",
+        "90Hz"
+      ]
+    },
+    {
+      "id": "p9",
+      "name": "Galaxy Z Fold 6",
+      "brand": "Samsung",
+      "category": "foldable",
+      "price": 89900000,
+      "oldPrice": 96000000,
+      "colors": [
+        "مشکی سایه‌دار",
+        "کرمی"
+      ],
+      "ram": "12 گیگابایت",
+      "storage": "256 گیگابایت",
+      "screen": "7.6 اینچ تاشو + 6.3 اینچ نمایشگر بیرونی",
+      "camera": "دوربین سه‌گانه ۵۰ مگاپیکسل",
+      "battery": "۴۴۰۰ میلی‌آمپر ساعت، شارژ سریع ۲۵ وات",
+      "chip": "Snapdragon 8 Gen 3 for Galaxy",
+      "rating": 4.7,
+      "reviews": 64,
+      "badge": "لوکس",
+      "accent": "violet",
+      "chips": [
+        "12GB RAM",
+        "256GB",
+        "4400mAh"
+      ]
+    }
+  ]
+}
