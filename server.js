@@ -17,9 +17,16 @@ const PORT = process.env.PORT || 3000;
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 // مدل متنی برای گفتگوی معمولی
-const TEXT_MODEL = 'llama-3.3-70b-versatile';
+// از "groq/compound" استفاده می‌کنیم چون یک ابزار جستجوی وب (web search) داخلش
+// به‌صورت توکار وجود داره. یعنی مدل خودش تشخیص می‌ده که یک سوال نیاز به اطلاعات
+// به‌روز/خارج از کاتالوگ فروشگاه داره یا نه، و در صورت نیاز خودکار سرچ می‌کنه؛
+// بدون اینکه لازم باشه API Key یا سرویس سرچ جداگانه‌ای اضافه کنیم.
+// مستندات: https://console.groq.com/docs/compound
+const TEXT_MODEL = 'groq/compound';
 // مدل چندوجهی (تصویر + متن)؛ طبق مستندات فعلی Groq تنها مدل چندوجهی است
 // (لیست به‌روز را در console.groq.com/docs/vision ببینید)
+// توجه: سیستم‌های compound فعلاً از ورودی تصویر پشتیبانی نمی‌کنن، برای همین
+// وقتی کاربر عکس می‌فرسته همچنان از این مدل استفاده می‌شه، نه از compound.
 const VISION_MODEL = 'qwen/qwen3.6-27b';
 
 if (!GROQ_API_KEY) {
@@ -60,9 +67,13 @@ const SITE_CONTEXT = buildSiteContext();
 const SYSTEM_PROMPT = `You are the AI shopping assistant embedded on the ${products.storeName} website, a mobile phone store.
 Always reply in the same language the user wrote in (Persian or English), fluently and naturally. Never mix in characters from other scripts (e.g. Chinese) unless the user explicitly wrote in that language.
 Remember details the user has shared earlier in this conversation (like their name or budget) and use them naturally.
-You have access to the store's real product catalog and policies below — use it to answer questions about specs, prices, comparisons, recommendations, shipping, and warranty. Only state facts that are in this catalog; if something isn't covered, say you're not sure and suggest contacting support.
+
+You have access to the store's real product catalog and policies below — for any question about this store's specs, prices, comparisons, recommendations, shipping, or warranty, answer ONLY from this catalog (do not search the web for these, and do not invent facts not present here; if something about the store isn't covered, say you're not sure and suggest contacting support).
+
+For anything NOT related to this store's catalog (general knowledge, current events, other products/brands not listed here, prices elsewhere, technical questions, etc.), you have a built-in web search tool — use it to find accurate, up-to-date information and answer normally like a helpful general assistant. Don't refuse or say you can only help with the store; just search and answer.
+
 If the user sends a photo (e.g. of their current phone, a screen issue, or a product they're comparing), look at it carefully and connect your answer back to the catalog when relevant (e.g. suggesting a suitable upgrade or matching accessory).
-Keep answers concise, friendly, and focused on helping the person choose or understand a product.
+Keep answers concise, friendly, and focused on helping the person.
 
 --- STORE CONTEXT ---
 ${SITE_CONTEXT}
@@ -98,6 +109,8 @@ app.post('/api/chat', async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${GROQ_API_KEY}`,
+        // نسخه‌ی جدیدترِ سیستم compound رو فعال می‌کنه (جستجوی وب پیشرفته‌تر)
+        'Groq-Model-Version': 'latest',
       },
       body: JSON.stringify({
         model,
