@@ -133,6 +133,25 @@ function saveHistory() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
 }
 
+// برای جلوگیری از خطای «حجم درخواست بیش از حد مجاز»، وقتی داریم به سرور
+// می‌فرستیم، عکسِ پیام‌های قدیمی‌تر (همه به‌جز آخرین پیام کاربر) رو با یک
+// متن جایگزین می‌کنیم. خودِ localStorage دست‌نخورده باقی می‌مونه و در نمایش
+// روی صفحه هم عکس‌های قبلی مثل قبل دیده می‌شن؛ فقط چیزی که به سرور می‌ره سبک‌تره.
+function buildPayloadForServer(fullHistory) {
+  const lastUserIndex = [...fullHistory].map((m) => m.role).lastIndexOf('user');
+  return fullHistory.map((msg, i) => {
+    if (msg.role === 'user' && Array.isArray(msg.content) && i !== lastUserIndex) {
+      return {
+        role: 'user',
+        content: msg.content.map((c) =>
+          c.type === 'image_url' ? { type: 'text', text: '[کاربر قبلاً یک عکس فرستاده بود]' } : c
+        ),
+      };
+    }
+    return msg;
+  });
+}
+
 function addMessage(text, sender, imageDataUrl) {
   const div = document.createElement('div');
   div.className = `msg msg-${sender}`;
@@ -258,13 +277,22 @@ async function sendMessage(promptText) {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: history }),
+      body: JSON.stringify({ messages: buildPayloadForServer(history) }),
     });
-    const data = await res.json();
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      data = null;
+    }
     loadingEl.remove();
 
     if (!res.ok) {
-      addMessage(`خطا: ${data.error || 'مشکلی پیش آمد'}`, 'bot');
+      const friendly =
+        res.status === 413
+          ? 'عکس یا مکالمه خیلی سنگین شده. لطفاً گفتگو رو با دکمه‌ی «پاک کردن» ریست کنید یا عکس کوچیک‌تری بفرستید.'
+          : data?.error || 'مشکلی پیش آمد';
+      addMessage(`خطا: ${friendly}`, 'bot');
       return;
     }
     addMessage(data.reply, 'bot');

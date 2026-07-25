@@ -11,6 +11,17 @@ const app = express();
 app.use(cors());
 // حجم بالاتر برای body لازم است چون عکس‌های base64 می‌توانند حجیم باشند
 app.use(express.json({ limit: '15mb' }));
+
+// اگر body بزرگ‌تر از سقف مجاز باشه، Express خطا throw می‌کنه؛ اینجا می‌گیریمش
+// و به‌جای صفحه‌ی HTML پیش‌فرض، یک پاسخ JSON تمیز برمی‌گردونیم تا فرانت‌اند
+// بتونه پیام خطا رو درست به کاربر نشون بده.
+app.use((err, req, res, next) => {
+  if (err && err.type === 'entity.too.large') {
+    return res.status(413).json({ error: 'حجم پیام یا عکس بیش از حد مجاز است.' });
+  }
+  next(err);
+});
+
 app.use(express.static('public'));
 
 const PORT = process.env.PORT || 3000;
